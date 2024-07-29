@@ -17,23 +17,38 @@
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+		if(!input){
+			data.myObj =[];
+			var storyGR = new GlideRecord('x_1486495_social_m_story');
+			storyGR.query();
+			while(storyGR.next()){
+				data.myObj.push({
+					username: storyGR.getValue('user'),
+				})
+			}
+		}
+})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>dhruvchauhan</sys_created_by>
         <sys_created_on>2024-07-29 10:32:31</sys_created_on>
         <sys_id>e53b8373c32b02105fe9bd73e401314e</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Social Homepage</sys_name>
         <sys_package display_value="Social Media" source="x_1486495_social_m">71834373c3e702105fe9bd73e40131c8</sys_package>
         <sys_policy/>
         <sys_scope display_value="Social Media">71834373c3e702105fe9bd73e40131c8</sys_scope>
         <sys_update_name>sp_widget_e53b8373c32b02105fe9bd73e401314e</sys_update_name>
         <sys_updated_by>dhruvchauhan</sys_updated_by>
-        <sys_updated_on>2024-07-29 10:33:06</sys_updated_on>
+        <sys_updated_on>2024-07-29 10:38:32</sys_updated_on>
         <template><![CDATA[<div>
 Stories
-  
+  <div ng-repeat="a in c.data.myObj">
+    {{a.username}}
+  </div>
 </div>]]></template>
     </sp_widget>
 </record_update>

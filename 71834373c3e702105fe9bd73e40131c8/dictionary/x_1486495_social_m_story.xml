@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="89848fb7c3e702105fe9bd73e4013113" label="Story" max_length="40" name="x_1486495_social_m_story" type="collection">
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="User" max_length="40" name="user" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User" max_length="40" name="user" reference="x_1486495_social_m_profile" type="reference"/>
         <element choice="1" label="Content type" max_length="40" name="content_type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Image" value="image"/>
