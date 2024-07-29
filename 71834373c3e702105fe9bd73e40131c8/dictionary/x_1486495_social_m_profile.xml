@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="1a554f33c3e702105fe9bd73e401316d" label="Profile" max_length="40" name="x_1486495_social_m_profile" type="collection">
+        <element label="Name" max_length="40" name="name" type="string"/>
+        <element label="Profile Image" max_length="40" name="profile_image" type="user_image"/>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element label="UserID" max_length="40" name="userid" type="string"/>
+        <index name="index">
+            <element name="user"/>
+        </index>
+    </element>
+</database>
